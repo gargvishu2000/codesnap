@@ -234,3 +234,4 @@ learning.
    Thank you for using <strong>CodeSnap</strong>! Happy coding! 👨‍💻
 </p>
 
+# codesnap
