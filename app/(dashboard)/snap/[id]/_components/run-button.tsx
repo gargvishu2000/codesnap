@@ -6,6 +6,7 @@ import { toast } from "sonner";
 
 import { useCodeStore } from "@/stores";
 import { ExecuteCode } from "@/actions";
+import UserInputBox from "@/components/userInputBox";
 
 export default function RunButton() {
     const { code, language, running, setRunning, setOutput, setError } =
@@ -21,11 +22,14 @@ export default function RunButton() {
                     content: code,
                 },
             ],
+            // i have inout here also.
+            stdin: UserInputBox
         };
 
         try {
             const result = await ExecuteCode(requestData);
-
+            
+            
             if (!result.run.stderr) {
                 setOutput(result.run.output.split("\n"));
                 setError(false);

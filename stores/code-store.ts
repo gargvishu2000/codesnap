@@ -1,3 +1,4 @@
+import { input } from "@nextui-org/theme";
 import { create } from "zustand";
 
 interface Language {
@@ -12,6 +13,8 @@ interface CodeStoreState {
     output: string[];
     error: boolean;
     editorLoading: boolean;
+    userInput: string;
+    setUserInput: (input: string) => void;
     setCode: (code: string) => void;
     setLanguage: (language: Language) => void;
     setRunning: (running: boolean) => void;
@@ -27,6 +30,8 @@ export const useCodeStore = create<CodeStoreState>((set) => ({
     output: [],
     error: false,
     editorLoading: true,
+    userInput: "",
+    setUserInput: (input: string) => set({ userInput: input }),
     setCode: (code) => set({ code }),
     setLanguage: (language) => set({ language }),
     setRunning: (running) => set({ running }),
